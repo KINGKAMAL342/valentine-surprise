@@ -48,7 +48,6 @@ function yesAnswer() {
 function noAnswer() {
   alert("That’s okay 😊 I just wanted to make you smile today 💖");
 }
-
 /* Auto hearts */
 setInterval(() => {
   const heart = document.createElement("span");
@@ -58,3 +57,28 @@ setInterval(() => {
 
   setTimeout(() => heart.remove(), 6000);
 }, 400);
+const images = [
+  "images/pic1.jpg",
+  "images/pic2.jpg",
+  "images/pic3.jpg"
+];
+
+let index = 0;
+const slide = document.getElementById("slide");
+
+setInterval(() => {
+  index = (index + 1) % images.length;
+  slide.src = images[index];
+}, 2500);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const music = document.getElementById("bgMusic");
+
+  function nextStep() {
+    if (music) {
+      music.play();
+    }
+  }
+
+  window.nextStep = nextStep;
+});
